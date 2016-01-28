@@ -1,0 +1,16 @@
+name: EpicXpBank
+author: [JustBru00]
+main: com.gmail.jsutbru00.epic.xpbank.main.Main
+commands:
+    epicxpbank:        
+        aliases: [] 
+        description: A basic help and license command.
+    depositxp:
+        aliases: []
+        description: Deposits xp in the bank.
+    withdrawxp:
+        aliases: []
+        description: Withdraws xp from xp bank.
+    createxpcheck:
+        aliases: []
+        description: Creates a paper that gives a player xp. But only the player that the creator chooses.
