@@ -1,0 +1,6 @@
+#EpicXpBank created by Justin Brubaker 
+#Copyright 2016 Justin Brubaker
+
+messages: 
+    epicxpbank:
+        not enough args: '' 

@@ -22,30 +22,29 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
  */
-package com.gmail.justbru00.epic.xpbank.utls;
+package com.gmail.justbru00.epic.xpbank.commands;
 
-import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import com.gmail.justbru00.epic.xpbank.main.Main;
 
+public class WithdrawXp implements CommandExecutor {
 
-public class Messager {
+	Main main;
+	
+	public WithdrawXp(Main main) {
+		this.main = main;
+	}
 
-	public static String color(String uncolored){
-		return ChatColor.translateAlternateColorCodes('&', uncolored);		
+	@Override
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		if (command.getName().equalsIgnoreCase("withdrawxp")) {
+			// Do stuff
+		}
+		
+		return false;
 	}
-	
-	public static void msgConsole(String msg) {
-		Main.console.sendMessage(Main.PREFIX + Messager.color(msg));		
-	}
-	
-	public static void msgPlayer(String msg, Player player) {
-		player.sendMessage(Main.PREFIX + Messager.color(msg));
-	}	
-	
-	public static void msgSender(String msg, CommandSender sender) {
-		sender.sendMessage(Main.PREFIX + Messager.color(msg));
-	}	
+
 }

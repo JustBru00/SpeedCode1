@@ -11,6 +11,3 @@ commands:
     withdrawxp:
         aliases: []
         description: Withdraws xp from xp bank.
-    createxpcheck:
-        aliases: []
-        description: Creates a paper that gives a player xp. But only the player that the creator chooses.

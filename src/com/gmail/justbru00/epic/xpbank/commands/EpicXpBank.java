@@ -22,30 +22,42 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
  */
-package com.gmail.justbru00.epic.xpbank.utls;
+package com.gmail.justbru00.epic.xpbank.commands;
 
-import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import com.gmail.justbru00.epic.xpbank.main.Main;
+import com.gmail.justbru00.epic.xpbank.utls.Messager;
 
-
-public class Messager {
-
-	public static String color(String uncolored){
-		return ChatColor.translateAlternateColorCodes('&', uncolored);		
+public class EpicXpBank implements CommandExecutor {
+	
+	Main main;
+	
+	public EpicXpBank(Main main) {
+		this.main = main;
 	}
-	
-	public static void msgConsole(String msg) {
-		Main.console.sendMessage(Main.PREFIX + Messager.color(msg));		
+
+	@Override
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		if (command.getName().equalsIgnoreCase("epicxpbank")) {
+			if (args.length > 1 || args.length == 0) {
+				Messager.msgSender(main.getConfigString("messages.epicxpbank.not enough args"), sender);
+				return true;
+			}
+			
+			if (args[0].equalsIgnoreCase("license")) {
+				Messager.msgSender("Visit: http://choosealicense.com/licenses/mit/ for the license.", sender);
+				return true;
+			} else if (args[0].equalsIgnoreCase("info")) {
+				Messager.msgSender("Version: " + main.PLUGIN_VERSION + ". EpicXpBank created by Justin Brubaker.", sender);
+				return true;
+			}
+						
+			return true;
+		}		
+		return false;
 	}
-	
-	public static void msgPlayer(String msg, Player player) {
-		player.sendMessage(Main.PREFIX + Messager.color(msg));
-	}	
-	
-	public static void msgSender(String msg, CommandSender sender) {
-		sender.sendMessage(Main.PREFIX + Messager.color(msg));
-	}	
+
 }
